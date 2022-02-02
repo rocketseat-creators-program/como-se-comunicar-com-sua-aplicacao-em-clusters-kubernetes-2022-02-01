@@ -1,12 +1,6 @@
-# Como se comunicar com sua aplicação em clusters Kubernetes
-
 <img src="https://storage.googleapis.com/golden-wind/experts-club/capa-github.svg" />
 
-# Formulários no ReactJS com Formik & Yup
-
-Criar formulários no React não é uma tarefa tão difícil assim, mas manter formulários complexos e performáticos em aplicações que podem escalar para o infinito e além é um trabalho árduo principalmente pela limitação que existe nas estratégias atuais.
-
-Nesse vídeo vamos utilizar o Unform, uma biblioteca criada pela Rocketseat para facilitar a manipulação de formulários complexos com relacionamentos mantendo a performance independente do número de campos.
+# Como se comunicar com sua aplicação em clusters Kubernetes
 
 ## Expert
 
