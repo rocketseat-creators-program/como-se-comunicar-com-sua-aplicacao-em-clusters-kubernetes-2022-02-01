@@ -1,4 +1,21 @@
 # Como se comunicar com sua aplicação em clusters Kubernetes
+
+<img src="https://storage.googleapis.com/golden-wind/experts-club/capa-github.svg" />
+
+# Formulários no ReactJS com Formik & Yup
+
+Criar formulários no React não é uma tarefa tão difícil assim, mas manter formulários complexos e performáticos em aplicações que podem escalar para o infinito e além é um trabalho árduo principalmente pela limitação que existe nas estratégias atuais.
+
+Nesse vídeo vamos utilizar o Unform, uma biblioteca criada pela Rocketseat para facilitar a manipulação de formulários complexos com relacionamentos mantendo a performance independente do número de campos.
+
+## Expert
+
+| [<img src="https://avatars.githubusercontent.com/u/70050534?v=4" width="75px;"/>](https://github.com/marcelo-devsres) |
+| :-: |
+|[Marcelo Andrade](https://github.com/marcelo-devsres)|
+
+## Introdução
+
 Bem vindo ao repositório desta aula!
 
 Quer baixar os slides para referência futura? Eles estão disponíveis aqui:
@@ -7,7 +24,7 @@ https://drive.google.com/file/d/1dQtrdOmmRpbykUhhrFonTc-IGQu5k5Xl/view?usp=shari
 
 Se quiser um roteiro do tipo "faça você mesmo", abaixo relaciono alguns comandos úteis:
 
-# Criação de um cluster EKS 
+## Criação de um cluster EKS 
 
 Se quiser fixar algumas das ideias da aula, você precisará de um cluster Kubernetes.
 
@@ -19,7 +36,7 @@ O cluster que usei foi um **AWS EKS**. Abaixo segue um roteiro para criar um igu
 > <br> Executar os comandos abaixo resultará em custos!
 > <br> **Não é Free Tier**!
 
-## Criação de um cluster EKS
+### Criação de um cluster EKS
 
 O comando abaixo criará um cluster EKS na Region **us-east-1** com dois nós t3.medium do tipo **spot**.
 
@@ -41,7 +58,7 @@ eksctl create cluster         \
 --nodes 2
 ```
 
-## Deploy de softwares
+### Deploy de softwares
 
 Aqui, é livre para o lançamento de qualquer tipo de software que você tenha familiaridade - inclusive a preferência é que seja feita dessa forma.
 
@@ -54,7 +71,7 @@ $ kubectl create namespace $NS
 $ kubectl -n $NS create -Rf podinfo
 ```
 
-## Deploy dos Ingresses Controllers
+### Deploy dos Ingresses Controllers
 
 Na aula, usei dois Ingresses Controllers: um dos mais amplamente usados em clusters hoje (o [Kubernetes Nginx Ingress Controller](https://github.com/kubernetes/ingress-nginx)) e o que eu uso nos meus ambientes (o [HAProxy Ingress Controller do jcmoraisjr](https://github.com/jcmoraisjr/haproxy-ingress)).
 
@@ -80,9 +97,9 @@ $ helm install haproxy-ingress haproxy-ingress/haproxy-ingress \
   --version 0.13.6
 ```
 
-## Alterações dos Services
+### Alterações dos Services
 
-### NodePort
+#### NodePort
 
 Se você está usando **Podinfo** como aplicação exemplo, é possível alterar o tipo de **Service** de **ClusterIP** para **NodePort** ou **LoadBalancer** por meio do comando Patch.
 
@@ -116,7 +133,7 @@ $ curl 5.34.6.129:32531
 
 Não funcionou? Bem, o EKS **não** libera as portas 30000 a 32768 nos **Security Groups** dos **NodeGroups**. Se você quiser testar essa funcionalidade, precisará editá-los diretamente!
 
-### LoadBalancer
+#### LoadBalancer
 
 Para transformar o **Service**, basta executar um comando **patch** semelhante ao anterior para **NodeGroup**:
 
@@ -171,9 +188,7 @@ $ curl ad1f79f5dd6874d7984f4c67c78e238e-1839947462.us-west-2.elb.amazonaws.com
 }
 ```
 
-
-
-## Acesso via Ingress
+### Acesso via Ingress
 
 Para acessar sua aplicação usando os Ingresses Controllers, é necessário criar objetos do tipo **Ingress** no Kubernetes.
 
